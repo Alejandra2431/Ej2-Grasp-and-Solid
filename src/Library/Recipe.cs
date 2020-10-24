@@ -27,6 +27,10 @@ namespace Full_GRASP_And_SOLID.Library
 
         public string Print()
         {
+            /* Expert: se cumple el patron expert ya que Recipe es experto en la informacion de los steps, para implementar el
+            metodo print para devover un string con todos los datos de la receta.
+            SRP: se mantiene el SRP ya que la unica razon de cambio de Recipe es devolver la informacion de la receta en forma de string.
+             */
             string result = $"Receta de {this.FinalProduct.Description}:\n";
             foreach (Step step in this.steps)
             {
