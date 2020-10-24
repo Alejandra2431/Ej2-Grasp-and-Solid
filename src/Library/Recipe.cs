@@ -13,6 +13,7 @@ namespace Full_GRASP_And_SOLID.Library
     {
         private ArrayList steps = new ArrayList();
 
+        private ConsolePrinter console = new ConsolePrinter();
         public Product FinalProduct { get; set; }
 
         public void AddStep(Step step)
@@ -27,8 +28,12 @@ namespace Full_GRASP_And_SOLID.Library
 
         public void PrintRecipe()
         {
-            ConsolePrinter console= new ConsolePrinter();
-            console.Print(steps, FinalProduct);
+            /* Creator: se uso el patron creator dado que el objeto ConsolePrinter se crea en la clase Recipe y tiene una
+            relacion muy estrecha con dicha clase.
+            SRP: para mantener el srp, se creo una nueva clase ConsolePrinter, pasandole la responsabilidad de imprimir por consola
+            a dicha clase. De esa forma Recipe solo tiene la responsabilidad de agregar o quitar steps de su lista.
+            */
+            this.console.Print(steps, FinalProduct);
         }
     }
 }
